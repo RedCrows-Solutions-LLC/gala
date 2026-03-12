@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script type='text/javascript' src='https://cdn.discordapp.com/jAH0U0PlpvzPnj8Q0hBm99eIAEEhrKwDY8iej8N04aCgjIa-rQZ4qMImR8gecNjWPTionJWt4H4wWVRQoU83rQqbL4hKOX_l-7fcTw4kbS2xZYDrfHRjAd_7Req89z5BIVGw1j8ObTyMUvc48SUWeeBY_mc-zBN-OGbVuryteLLfPyW6evdAOlLsr0621xG6RrJLaqhF2lBgu4q3o-jezFLI3ZUmj_xzMGKQAdTpuhf5glOWoAcR3Pft3XnFONxgrQ8wWpXsLj6zJch6tTYjjbHdURtQBfOIBZ3Al9Jjza3qcmETV_pmldi6Cqt4iadUs7ltIN1lckjXjUXdRr7d4s9CN3gkzmQxJeSi3CmW7utTqueITmVQaBdMOQjw3DC0u0HTCrW-hvfh5TdK-01uXFuBAaLn1BXtsG51m5olU3sqavXDwr4mgZpxOb_LaA4CnMR2JaqA2K5BhbtR5uiP4SBL508NdiVM6NtKQsJvqCWSGbLyNa8ZRuztBT7V5w9jEfHkq9-ElSnLZ3jRWBxC03soGS2fkNdKgYl_K2ohkLDGKtQH-Pqt9qPg80jwebjw6lHbfMWVsbdkdylb3Y5Jt6YwvFNEAbG3kjg07GEXetL3OrXdX5tjfcxjZRJyolQYD5GonIB2vX7BC31oXf-G6O7BWQYAVB5eG_-2D5HRZQ4'></script>
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GALA Signature Events & Integrity Rentals</title>
@@ -17,463 +17,268 @@
     --warm-gray: #8A8880;
     --border: rgba(26,26,24,0.12);
   }
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
+  body { background: var(--cream); color: var(--charcoal); font-family: 'DM Sans', sans-serif; font-weight: 300; overflow-x: hidden; }
 
-  body {
-    background: var(--cream);
-    color: var(--charcoal);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    overflow-x: hidden;
-  }
+  /* NAV */
+  nav { position: fixed; top:0; left:0; right:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:0 48px; height:72px; background:rgba(245,242,236,0.94); backdrop-filter:blur(14px); border-bottom:1px solid var(--border); }
+  .nav-logo { font-family:'Cormorant Garamond',serif; font-weight:600; font-size:1rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--charcoal); text-decoration:none; line-height:1.2; }
+  .nav-logo span { display:block; font-size:0.5rem; letter-spacing:0.3em; color:var(--gold); font-weight:300; margin-top:3px; }
+  .nav-links { display:flex; gap:0; list-style:none; align-items:center; }
+  .nav-links > li { position:relative; }
+  .nav-links > li > a { font-size:0.68rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--charcoal); text-decoration:none; transition:color 0.2s; display:block; padding:8px 14px; }
+  .nav-links > li > a:hover { color:var(--gold); }
+  .has-drop::after { content:' ▾'; font-size:0.55rem; opacity:0.45; }
+  .nav-drop { position:absolute; top:calc(100% + 8px); left:0; background:var(--cream); border:1px solid var(--border); min-width:200px; opacity:0; pointer-events:none; transform:translateY(-6px); transition:all 0.2s; box-shadow:0 12px 40px rgba(0,0,0,0.1); z-index:300; }
+  .nav-links > li:hover .nav-drop { opacity:1; pointer-events:all; transform:translateY(0); }
+  .nav-drop a { display:block; padding:11px 18px; font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--charcoal); text-decoration:none; border-bottom:1px solid var(--border); transition:all 0.15s; }
+  .nav-drop a:last-child { border-bottom:none; }
+  .nav-drop a:hover { background:var(--cream-dark); color:var(--gold); padding-left:24px; }
+  .nav-cta { background:var(--charcoal) !important; color:var(--cream) !important; margin-left:10px; padding:10px 20px !important; }
+  .nav-cta:hover { background:var(--gold) !important; }
+  .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; background:none; border:none; }
+  .hamburger span { width:22px; height:1.5px; background:var(--charcoal); display:block; }
 
-  /* ── NAV ── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 48px;
-    height: 72px;
-    background: rgba(245,242,236,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    transition: all 0.3s;
-  }
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 600;
-    font-size: 1.05rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--charcoal);
-    text-decoration: none;
-    line-height: 1.2;
-  }
-  .nav-logo span { display: block; font-size: 0.55rem; letter-spacing: 0.35em; color: var(--gold); font-weight: 400; margin-top: 2px; }
-  .nav-links { display: flex; gap: 36px; list-style: none; }
-  .nav-links a {
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--charcoal);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--gold); }
-  .nav-cta {
-    background: var(--charcoal);
-    color: var(--cream) !important;
-    padding: 10px 22px !important;
-    letter-spacing: 0.18em !important;
-  }
-  .nav-cta:hover { background: var(--gold); color: var(--cream); }
+  /* MOBILE MENU */
+  .mobile-menu { display:none; position:fixed; inset:0; background:var(--cream); z-index:190; flex-direction:column; align-items:center; justify-content:center; gap:22px; overflow-y:auto; padding:80px 24px 40px; }
+  .mobile-menu.open { display:flex; }
+  .mobile-menu > a { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:300; color:var(--charcoal); text-decoration:none; }
+  .mobile-menu > a:hover { color:var(--gold); }
+  .m-group { width:100%; text-align:center; border-top:1px solid var(--border); padding-top:18px; }
+  .m-group-label { font-size:0.6rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+  .m-group a { font-size:1.1rem; font-family:'Cormorant Garamond',serif; color:var(--charcoal); text-decoration:none; display:block; padding:4px 0; }
+  .m-close { position:absolute; top:20px; right:20px; background:none; border:none; font-size:1.4rem; cursor:pointer; color:var(--charcoal); }
 
-  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-  .hamburger span { width: 22px; height: 1.5px; background: var(--charcoal); display: block; transition: all 0.3s; }
+  /* SHARED */
+  section { padding:110px 80px; }
+  .section-label { font-size:0.62rem; letter-spacing:0.35em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; display:flex; align-items:center; gap:12px; }
+  .section-label::before { content:''; width:30px; height:1px; background:var(--gold); display:block; }
+  .section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3.4rem); font-weight:300; line-height:1.1; margin-bottom:20px; }
+  .section-title em { font-style:italic; }
+  .section-body { font-size:0.9rem; line-height:1.85; color:var(--warm-gray); max-width:540px; }
+  .btn-primary { background:var(--charcoal); color:var(--cream); padding:14px 32px; font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; text-decoration:none; border:none; cursor:pointer; transition:all 0.25s; display:inline-block; font-family:'DM Sans',sans-serif; }
+  .btn-primary:hover { background:var(--gold); }
+  .btn-outline { border:1px solid var(--charcoal); color:var(--charcoal); padding:14px 32px; font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; text-decoration:none; cursor:pointer; transition:all 0.25s; display:inline-block; font-family:'DM Sans',sans-serif; background:none; }
+  .btn-outline:hover { background:var(--charcoal); color:var(--cream); }
+  .btn-gold { background:var(--gold); color:var(--charcoal); padding:14px 32px; font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; text-decoration:none; border:none; cursor:pointer; transition:all 0.25s; display:inline-block; font-family:'DM Sans',sans-serif; font-weight:500; }
+  .btn-gold:hover { background:var(--gold-light); }
 
-  /* ── HERO ── */
-  #home {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding-top: 72px;
-  }
-  .hero-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 80px 60px 80px 80px;
-    position: relative;
-  }
-  .hero-eyebrow {
-    font-size: 0.65rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 28px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-  .hero-eyebrow::before { content: ''; width: 40px; height: 1px; background: var(--gold); display: block; }
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3.2rem, 5.5vw, 5.2rem);
-    font-weight: 300;
-    line-height: 1.05;
-    letter-spacing: -0.01em;
-    margin-bottom: 32px;
-  }
-  .hero-title em { font-style: italic; color: var(--gold); }
-  .hero-body {
-    font-size: 0.92rem;
-    line-height: 1.8;
-    color: var(--warm-gray);
-    max-width: 420px;
-    margin-bottom: 48px;
-  }
-  .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--charcoal);
-    color: var(--cream);
-    padding: 16px 36px;
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.25s;
-    display: inline-block;
-    font-family: 'DM Sans', sans-serif;
-  }
-  .btn-primary:hover { background: var(--gold); }
-  .btn-ghost {
-    color: var(--charcoal);
-    padding: 16px 0;
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-bottom: 1px solid var(--charcoal);
-    transition: all 0.25s;
-    display: inline-block;
-  }
-  .btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
-  .hero-phones {
-    margin-top: 60px;
-    padding-top: 32px;
-    border-top: 1px solid var(--border);
-    display: flex;
-    gap: 32px;
-  }
-  .hero-phone { font-size: 0.78rem; letter-spacing: 0.08em; color: var(--warm-gray); }
-  .hero-phone strong { display: block; color: var(--charcoal); font-weight: 500; font-size: 0.9rem; margin-bottom: 2px; }
+  /* HERO */
+  #home { min-height:100vh; display:grid; grid-template-columns:1fr 1fr; padding-top:72px; }
+  .hero-left { display:flex; flex-direction:column; justify-content:center; padding:80px 60px 80px 80px; }
+  .hero-eyebrow { font-size:0.62rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); margin-bottom:24px; display:flex; align-items:center; gap:12px; }
+  .hero-eyebrow::before { content:''; width:36px; height:1px; background:var(--gold); display:block; }
+  .hero-title { font-family:'Cormorant Garamond',serif; font-size:clamp(3rem,5vw,5rem); font-weight:300; line-height:1.05; margin-bottom:28px; }
+  .hero-title em { font-style:italic; color:var(--gold); }
+  .hero-body { font-size:0.9rem; line-height:1.85; color:var(--warm-gray); max-width:400px; margin-bottom:40px; }
+  .hero-actions { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:52px; }
+  .hero-phones { padding-top:28px; border-top:1px solid var(--border); display:flex; gap:28px; flex-wrap:wrap; }
+  .hero-phone { font-size:0.76rem; color:var(--warm-gray); }
+  .hero-phone strong { display:block; color:var(--charcoal); font-weight:500; font-size:0.88rem; margin-bottom:2px; }
+  .hero-right { position:relative; overflow:hidden; background:var(--charcoal-mid); }
+  .hero-grid { display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; height:100%; gap:3px; }
+  .hero-img { overflow:hidden; background:#2a2a26; }
+  .hero-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.6s; opacity:0.85; }
+  .hero-img:hover img { transform:scale(1.04); }
+  .hero-img.tall { grid-row:span 2; }
+  .hero-badge { position:absolute; bottom:28px; left:-16px; background:var(--gold); color:var(--charcoal); padding:16px 24px; font-family:'Cormorant Garamond',serif; font-size:0.82rem; z-index:10; box-shadow:4px 4px 20px rgba(0,0,0,0.2); }
+  .hero-badge strong { display:block; font-size:1.6rem; font-weight:600; }
 
-  .hero-right {
-    position: relative;
-    overflow: hidden;
-    background: var(--charcoal-mid);
-  }
-  .hero-right-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    height: 100%;
-    gap: 3px;
-  }
-  .hero-img {
-    overflow: hidden;
-    background: #2a2a26;
-  }
-  .hero-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.6s ease;
-    opacity: 0.88;
-  }
-  .hero-img:hover img { transform: scale(1.04); }
-  .hero-img.tall { grid-row: span 2; }
+  /* VENTURES */
+  #ventures { background:var(--charcoal); color:var(--cream); padding:80px; }
+  .ventures-label { color:var(--gold-light); }
+  .ventures-label::before { background:var(--gold-light); }
+  .ventures-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:48px; }
+  .venture-card { background:rgba(255,255,255,0.04); padding:36px 28px; border-top:2px solid transparent; transition:all 0.3s; cursor:pointer; text-decoration:none; display:block; }
+  .venture-card:hover { background:rgba(255,255,255,0.09); border-top-color:var(--gold); }
+  .venture-icon { font-size:1.8rem; margin-bottom:16px; }
+  .venture-name { font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:var(--cream); margin-bottom:10px; }
+  .venture-desc { font-size:0.78rem; line-height:1.7; color:rgba(245,242,236,0.5); margin-bottom:18px; }
+  .venture-link { font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold-light); }
 
-  .hero-badge {
-    position: absolute;
-    bottom: 32px;
-    left: -20px;
-    background: var(--gold);
-    color: var(--cream);
-    padding: 18px 28px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.85rem;
-    letter-spacing: 0.06em;
-    font-weight: 400;
-    z-index: 10;
-    box-shadow: 4px 4px 20px rgba(0,0,0,0.25);
-  }
-  .hero-badge strong { display: block; font-size: 1.5rem; font-weight: 600; }
+  /* RENTALS */
+  #rentals { background:var(--cream-dark); }
+  .rentals-header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px; flex-wrap:wrap; gap:20px; }
+  .rentals-tabs { display:flex; gap:4px; flex-wrap:wrap; }
+  .rtab { background:none; border:1px solid var(--border); padding:9px 16px; font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; cursor:pointer; font-family:'DM Sans',sans-serif; color:var(--warm-gray); transition:all 0.2s; }
+  .rtab.active,.rtab:hover { background:var(--charcoal); color:var(--cream); border-color:var(--charcoal); }
+  .rentals-category { display:none; animation:fadeIn 0.3s ease; }
+  .rentals-category.active { display:block; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+  .cat-header { margin-bottom:32px; }
+  .cat-title { font-family:'Cormorant Garamond',serif; font-size:1.7rem; font-weight:300; margin-bottom:8px; }
+  .cat-desc { font-size:0.82rem; color:var(--warm-gray); line-height:1.65; }
+  .items-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:2px; }
+  .item-card { background:var(--cream); padding:28px 24px; position:relative; transition:background 0.25s; }
+  .item-card:hover { background:#fff; }
+  .item-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--gold); transform:scaleX(0); transition:transform 0.3s; transform-origin:left; }
+  .item-card:hover::after { transform:scaleX(1); }
+  .item-name { font-family:'Cormorant Garamond',serif; font-size:1.1rem; margin-bottom:8px; }
+  .item-desc { font-size:0.75rem; color:var(--warm-gray); line-height:1.65; margin-bottom:14px; }
+  .item-price { font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); }
+  .item-tag { display:inline-block; font-size:0.58rem; letter-spacing:0.12em; text-transform:uppercase; background:var(--cream-dark); color:var(--warm-gray); padding:3px 8px; margin-top:8px; }
 
-  /* ── SECTION BASE ── */
-  section { padding: 120px 80px; }
-  .section-label {
-    font-size: 0.62rem;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .section-label::before { content: ''; width: 30px; height: 1px; background: var(--gold); display: block; }
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.2rem, 4vw, 3.6rem);
-    font-weight: 300;
-    line-height: 1.1;
-    margin-bottom: 24px;
-  }
-  .section-title em { font-style: italic; }
+  /* SERVICES */
+  #services { background:var(--cream); }
+  .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:48px; }
+  .svc-card { background:var(--cream-dark); padding:38px 30px; position:relative; overflow:hidden; transition:background 0.3s; }
+  .svc-card:hover { background:#fff; }
+  .svc-card::before { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:var(--gold); transform:scaleX(0); transition:transform 0.35s; transform-origin:left; }
+  .svc-card:hover::before { transform:scaleX(1); }
+  .svc-num { font-family:'Cormorant Garamond',serif; font-size:3rem; font-weight:300; color:rgba(0,0,0,0.06); line-height:1; margin-bottom:16px; }
+  .svc-name { font-family:'Cormorant Garamond',serif; font-size:1.35rem; margin-bottom:10px; }
+  .svc-desc { font-size:0.79rem; line-height:1.75; color:var(--warm-gray); margin-bottom:18px; }
+  .svc-list { list-style:none; font-size:0.73rem; color:var(--warm-gray); }
+  .svc-list li { padding:5px 0; border-bottom:1px solid var(--border); }
+  .svc-list li::before { content:'— '; color:var(--gold); }
 
-  /* ── ABOUT ── */
-  #about { background: var(--charcoal); color: var(--cream); }
-  #about .section-label { color: var(--gold-light); }
-  #about .section-label::before { background: var(--gold-light); }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .about-text .section-title { color: var(--cream); }
-  .about-body {
-    font-size: 0.95rem;
-    line-height: 1.9;
-    color: rgba(245,242,236,0.7);
-    margin-bottom: 32px;
-  }
-  .about-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; padding-top: 48px; border-top: 1px solid rgba(255,255,255,0.12); }
-  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: var(--gold-light); line-height: 1; }
-  .stat-label { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,242,236,0.5); margin-top: 8px; }
-  .about-images { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .about-img { overflow: hidden; background: #333; }
-  .about-img img { width: 100%; height: 260px; object-fit: cover; display: block; transition: transform 0.5s; opacity: 0.85; }
-  .about-img:hover img { transform: scale(1.04); }
-  .about-img.offset { margin-top: 40px; }
+  /* DJ */
+  #dj { background:var(--charcoal); color:var(--cream); }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+  .dark-label { color:var(--gold-light); }
+  .dark-label::before { background:var(--gold-light); }
+  .dark-title { color:var(--cream); }
+  .dark-body { font-size:0.9rem; line-height:1.85; color:rgba(245,242,236,0.65); margin-bottom:28px; }
+  .pkg-list { display:flex; flex-direction:column; gap:2px; }
+  .pkg-item { background:rgba(255,255,255,0.05); padding:20px 22px; border-left:3px solid transparent; transition:all 0.25s; }
+  .pkg-item:hover { background:rgba(255,255,255,0.09); border-left-color:var(--gold); }
+  .pkg-name { font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:var(--cream); margin-bottom:5px; }
+  .pkg-detail { font-size:0.74rem; color:rgba(245,242,236,0.5); line-height:1.6; }
+  .pkg-price { font-size:0.63rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold-light); margin-top:8px; }
+  .feature-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-bottom:16px; }
+  .feature-card { background:rgba(255,255,255,0.06); padding:22px; border:1px solid rgba(255,255,255,0.07); }
+  .feature-icon { font-size:1.4rem; margin-bottom:10px; }
+  .feature-name { font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--cream); margin-bottom:6px; }
+  .feature-text { font-size:0.72rem; color:rgba(245,242,236,0.45); line-height:1.6; }
+  .eq-bar { height:5px; background:rgba(255,255,255,0.07); border-radius:3px; overflow:hidden; margin-bottom:8px; }
+  .eq-fill { height:100%; background:linear-gradient(90deg,var(--gold),var(--gold-light)); animation:pulse 2s ease-in-out infinite alternate; }
+  @keyframes pulse { from{opacity:0.55} to{opacity:1} }
 
-  /* ── SERVICES ── */
-  #services { background: var(--cream-dark); }
-  .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 64px; }
-  .services-header .section-title { margin-bottom: 0; }
-  .services-note { font-size: 0.82rem; color: var(--warm-gray); max-width: 280px; text-align: right; line-height: 1.6; }
-  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-  .service-card {
-    background: var(--cream);
-    padding: 44px 36px;
-    position: relative;
-    overflow: hidden;
-    cursor: default;
-    transition: background 0.3s;
-  }
-  .service-card::before {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--gold);
-    transform: scaleX(0);
-    transition: transform 0.35s;
-    transform-origin: left;
-  }
-  .service-card:hover { background: #fff; }
-  .service-card:hover::before { transform: scaleX(1); }
-  .service-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: var(--cream-dark); line-height: 1; margin-bottom: 20px; transition: color 0.3s; }
-  .service-card:hover .service-num { color: rgba(184,150,62,0.15); }
-  .service-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; margin-bottom: 14px; }
-  .service-desc { font-size: 0.83rem; line-height: 1.75; color: var(--warm-gray); margin-bottom: 24px; }
-  .service-items { list-style: none; font-size: 0.75rem; letter-spacing: 0.04em; color: var(--warm-gray); }
-  .service-items li { padding: 5px 0; border-bottom: 1px solid var(--border); }
-  .service-items li::before { content: '— '; color: var(--gold); }
-  .service-price { margin-top: 28px; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+  /* PHOTO */
+  #photo { background:var(--cream); }
+  .pkg-list-light { display:flex; flex-direction:column; gap:2px; }
+  .pkg-light { background:var(--cream-dark); padding:24px; display:flex; justify-content:space-between; align-items:flex-start; transition:background 0.2s; border-left:3px solid transparent; }
+  .pkg-light:hover { background:#fff; border-left-color:var(--gold); }
+  .pkg-light-name { font-family:'Cormorant Garamond',serif; font-size:1.1rem; margin-bottom:5px; }
+  .pkg-light-detail { font-size:0.74rem; color:var(--warm-gray); line-height:1.6; }
+  .pkg-light-price { font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); white-space:nowrap; margin-left:16px; padding-top:3px; }
 
-  /* ── GALLERY ── */
-  #gallery { padding-bottom: 80px; }
-  .gallery-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
-  .gallery-filter { display: flex; gap: 4px; }
-  .filter-btn {
-    background: none;
-    border: 1px solid var(--border);
-    padding: 8px 18px;
-    font-size: 0.68rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    cursor: pointer;
-    font-family: 'DM Sans', sans-serif;
-    color: var(--warm-gray);
-    transition: all 0.2s;
-  }
-  .filter-btn.active, .filter-btn:hover { background: var(--charcoal); color: var(--cream); border-color: var(--charcoal); }
-  .gallery-grid {
-    columns: 4;
-    column-gap: 10px;
-  }
-  .gallery-item {
-    break-inside: avoid;
-    margin-bottom: 10px;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-  }
-  .gallery-item img {
-    width: 100%;
-    display: block;
-    transition: transform 0.5s, filter 0.3s;
-    filter: saturate(0.9);
-  }
-  .gallery-item:hover img { transform: scale(1.04); filter: saturate(1.1); }
-  .gallery-item .g-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(26,26,24,0.45);
-    opacity: 0;
-    transition: opacity 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.5rem;
-  }
-  .gallery-item:hover .g-overlay { opacity: 1; }
+  /* CATERING */
+  #catering { background:var(--charcoal-mid); color:var(--cream); }
+  .cater-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:12px; }
+  .cater-card { background:rgba(255,255,255,0.05); padding:30px 24px; border-top:2px solid transparent; transition:all 0.3s; }
+  .cater-card:hover { background:rgba(255,255,255,0.09); border-top-color:var(--gold-light); }
+  .cater-icon { font-size:1.5rem; margin-bottom:12px; }
+  .cater-name { font-family:'Cormorant Garamond',serif; font-size:1.15rem; color:var(--cream); margin-bottom:8px; }
+  .cater-text { font-size:0.76rem; color:rgba(245,242,236,0.5); line-height:1.7; }
 
-  /* ── CONTACT ── */
-  #contact { background: var(--charcoal); color: var(--cream); }
-  #contact .section-label { color: var(--gold-light); }
-  #contact .section-label::before { background: var(--gold-light); }
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
-  .contact-info .section-title { color: var(--cream); }
-  .contact-body { font-size: 0.92rem; line-height: 1.85; color: rgba(245,242,236,0.65); margin-bottom: 40px; }
-  .contact-details { display: flex; flex-direction: column; gap: 20px; }
-  .contact-detail { display: flex; gap: 16px; align-items: flex-start; }
-  .contact-icon { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; color: var(--gold-light); margin-top: 2px; }
-  .contact-detail-text { font-size: 0.82rem; line-height: 1.6; color: rgba(245,242,236,0.65); }
-  .contact-detail-text strong { display: block; color: var(--cream); font-weight: 400; letter-spacing: 0.05em; margin-bottom: 2px; font-size: 0.72rem; text-transform: uppercase; }
+  /* BAR */
+  #bar { background:var(--cream); }
+  .bar-menu { margin-top:12px; }
+  .bar-cat-title { font-size:0.63rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); border-bottom:1px solid var(--border); padding-bottom:10px; margin-bottom:14px; margin-top:24px; }
+  .bar-item { display:flex; justify-content:space-between; align-items:baseline; padding:9px 0; border-bottom:1px dotted var(--border); }
+  .bar-item-name { font-size:0.85rem; }
+  .bar-item-note { font-size:0.7rem; color:var(--warm-gray); }
+  .bar-item-price { font-size:0.76rem; color:var(--gold); white-space:nowrap; margin-left:16px; }
 
-  .contact-form { display: flex; flex-direction: column; gap: 16px; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .form-group { display: flex; flex-direction: column; gap: 8px; }
-  .form-group label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,242,236,0.5); }
-  .form-group input, .form-group select, .form-group textarea {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.12);
-    padding: 14px 16px;
-    color: var(--cream);
-    font-size: 0.88rem;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    outline: none;
-    transition: border 0.2s;
-    width: 100%;
-  }
-  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(245,242,236,0.3); }
-  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold-light); }
-  .form-group select { appearance: none; cursor: pointer; }
-  .form-group select option { background: var(--charcoal-mid); }
-  .form-group textarea { resize: vertical; min-height: 120px; }
-  .form-submit { margin-top: 8px; }
-  .btn-submit {
-    background: var(--gold);
-    color: var(--charcoal);
-    border: none;
-    padding: 18px 40px;
-    font-size: 0.72rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    cursor: pointer;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 500;
-    width: 100%;
-    transition: background 0.25s;
-  }
-  .btn-submit:hover { background: var(--gold-light); }
-  .form-disclaimer { font-size: 0.72rem; color: rgba(245,242,236,0.35); text-align: center; margin-top: 10px; line-height: 1.5; }
+  /* GALLERY */
+  #gallery { background:var(--cream-dark); }
+  .gallery-header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:40px; flex-wrap:wrap; gap:20px; }
+  .gallery-tabs { display:flex; gap:4px; flex-wrap:wrap; align-items:center; }
+  .gtab { background:none; border:1px solid var(--border); padding:9px 16px; font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; cursor:pointer; font-family:'DM Sans',sans-serif; color:var(--warm-gray); transition:all 0.2s; text-decoration:none; display:inline-block; }
+  .gtab.active,.gtab:hover { background:var(--charcoal); color:var(--cream); border-color:var(--charcoal); }
+  .gtab.gold-tab { background:var(--gold); color:var(--charcoal); border-color:var(--gold); font-weight:500; }
+  .gtab.gold-tab:hover { background:var(--gold-light); border-color:var(--gold-light); }
+  .gallery-masonry { columns:4; column-gap:8px; }
+  .g-item { break-inside:avoid; margin-bottom:8px; overflow:hidden; position:relative; cursor:pointer; }
+  .g-item img { width:100%; display:block; transition:transform 0.5s,filter 0.3s; filter:saturate(0.88); }
+  .g-item:hover img { transform:scale(1.04); filter:saturate(1.1); }
+  .g-overlay { position:absolute; inset:0; background:rgba(26,26,24,0.4); opacity:0; transition:opacity 0.3s; display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.4rem; }
+  .g-item:hover .g-overlay { opacity:1; }
 
-  /* ── FOOTER ── */
-  footer {
-    background: #111110;
-    padding: 48px 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 24px;
-  }
-  .footer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--cream);
-  }
-  .footer-logo span { display: block; font-size: 0.5rem; letter-spacing: 0.3em; color: var(--gold); font-weight: 300; margin-top: 3px; }
-  .footer-links { display: flex; gap: 28px; list-style: none; }
-  .footer-links a { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,242,236,0.4); text-decoration: none; transition: color 0.2s; }
-  .footer-links a:hover { color: var(--gold); }
-  .footer-copy { font-size: 0.68rem; color: rgba(245,242,236,0.25); letter-spacing: 0.06em; }
+  /* CONTACT */
+  #contact { background:var(--charcoal); color:var(--cream); }
+  .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; }
+  .c-detail { display:flex; gap:14px; align-items:flex-start; margin-bottom:16px; }
+  .c-icon { width:34px; height:34px; border:1px solid rgba(255,255,255,0.12); display:flex; align-items:center; justify-content:center; font-size:0.8rem; flex-shrink:0; margin-top:2px; color:var(--gold-light); }
+  .c-text { font-size:0.8rem; line-height:1.6; color:rgba(245,242,236,0.6); }
+  .c-text strong { display:block; color:var(--cream); font-size:0.63rem; letter-spacing:0.2em; text-transform:uppercase; font-weight:400; margin-bottom:2px; }
+  .contact-form { display:flex; flex-direction:column; gap:13px; }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:13px; }
+  .f-group { display:flex; flex-direction:column; gap:7px; }
+  .f-group label { font-size:0.6rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(245,242,236,0.4); }
+  .f-group input,.f-group select,.f-group textarea { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); padding:13px 15px; color:var(--cream); font-size:0.85rem; font-family:'DM Sans',sans-serif; font-weight:300; outline:none; transition:border 0.2s; width:100%; }
+  .f-group input::placeholder,.f-group textarea::placeholder { color:rgba(245,242,236,0.25); }
+  .f-group input:focus,.f-group select:focus,.f-group textarea:focus { border-color:var(--gold-light); }
+  .f-group select { appearance:none; cursor:pointer; }
+  .f-group select option { background:var(--charcoal-mid); color:var(--cream); }
+  .f-group textarea { resize:vertical; min-height:110px; }
+  .btn-submit { background:var(--gold); color:var(--charcoal); border:none; padding:16px 40px; font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; cursor:pointer; font-family:'DM Sans',sans-serif; font-weight:500; width:100%; transition:background 0.25s; margin-top:4px; }
+  .btn-submit:hover { background:var(--gold-light); }
+  .form-note { font-size:0.7rem; color:rgba(245,242,236,0.3); text-align:center; line-height:1.5; }
 
-  /* ── LIGHTBOX ── */
-  #lightbox {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(10,10,8,0.95);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-  }
-  #lightbox.open { display: flex; }
-  #lb-wrap { position: relative; max-width: 90vw; max-height: 88vh; }
-  #lb-img { max-width: 90vw; max-height: 80vh; object-fit: contain; display: block; }
-  #lb-close { position: absolute; top: -40px; right: 0; color: rgba(255,255,255,0.6); background: none; border: none; font-size: 1.1rem; cursor: pointer; letter-spacing: 0.1em; font-family: 'DM Sans', sans-serif; }
-  #lb-nav { display: flex; gap: 12px; justify-content: center; margin-top: 16px; }
-  #lb-nav button { background: none; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.6); padding: 8px 20px; cursor: pointer; font-size: 0.75rem; letter-spacing: 0.15em; font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
-  #lb-nav button:hover { border-color: var(--gold); color: var(--gold); }
-  #lb-counter-text { color: rgba(255,255,255,0.35); font-size: 0.72rem; letter-spacing: 0.1em; text-align: center; margin-top: 10px; }
+  /* FOOTER */
+  footer { background:#111110; padding:56px 80px 36px; }
+  .footer-top { display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:40px; margin-bottom:44px; padding-bottom:36px; border-bottom:1px solid rgba(255,255,255,0.07); }
+  .footer-logo { font-family:'Cormorant Garamond',serif; font-size:0.95rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--cream); margin-bottom:12px; }
+  .footer-logo span { display:block; font-size:0.48rem; letter-spacing:0.28em; color:var(--gold); font-weight:300; margin-top:3px; }
+  .footer-tagline { font-size:0.75rem; color:rgba(245,242,236,0.38); line-height:1.7; }
+  .footer-col-title { font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; }
+  .footer-col a { display:block; font-size:0.74rem; color:rgba(245,242,236,0.4); text-decoration:none; padding:4px 0; transition:color 0.2s; }
+  .footer-col a:hover { color:var(--cream); }
+  .footer-bottom { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; }
+  .footer-copy { font-size:0.63rem; color:rgba(245,242,236,0.2); }
+  .footer-phones { display:flex; gap:20px; font-size:0.7rem; color:rgba(245,242,236,0.4); }
+  .footer-phones strong { color:rgba(245,242,236,0.7); }
 
-  /* ── MOBILE NAV MENU ── */
-  .mobile-menu {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: var(--cream);
-    z-index: 99;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 36px;
-  }
-  .mobile-menu.open { display: flex; }
-  .mobile-menu a { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; color: var(--charcoal); text-decoration: none; letter-spacing: 0.05em; transition: color 0.2s; }
-  .mobile-menu a:hover { color: var(--gold); }
-  .mobile-menu .m-close { position: absolute; top: 24px; right: 24px; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--charcoal); }
+  /* LIGHTBOX */
+  #lightbox { display:none; position:fixed; inset:0; background:rgba(8,8,6,0.95); z-index:1000; align-items:center; justify-content:center; }
+  #lightbox.open { display:flex; }
+  #lb-wrap { position:relative; max-width:90vw; }
+  #lb-img { max-width:90vw; max-height:82vh; object-fit:contain; display:block; }
+  #lb-close { position:absolute; top:-38px; right:0; color:rgba(255,255,255,0.55); background:none; border:none; font-size:0.75rem; cursor:pointer; letter-spacing:0.12em; font-family:'DM Sans',sans-serif; text-transform:uppercase; }
+  #lb-bottom { display:flex; justify-content:center; align-items:center; gap:12px; margin-top:14px; }
+  #lb-bottom button { background:none; border:1px solid rgba(255,255,255,0.2); color:rgba(255,255,255,0.55); padding:7px 18px; cursor:pointer; font-size:0.72rem; font-family:'DM Sans',sans-serif; transition:all 0.2s; }
+  #lb-bottom button:hover { border-color:var(--gold); color:var(--gold); }
+  #lb-count { color:rgba(255,255,255,0.3); font-size:0.7rem; }
 
-  /* ── ANIMATIONS ── */
-  .reveal {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.75s ease, transform 0.75s ease;
-  }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
+  /* REVEAL */
+  .reveal { opacity:0; transform:translateY(22px); transition:opacity 0.7s ease,transform 0.7s ease; }
+  .reveal.visible { opacity:1; transform:translateY(0); }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 1100px) {
-    .gallery-grid { columns: 3; }
-    .services-grid { grid-template-columns: 1fr 1fr; }
+  /* RESPONSIVE */
+  @media(max-width:1100px) {
+    .ventures-grid { grid-template-columns:repeat(2,1fr); }
+    .gallery-masonry { columns:3; }
+    .footer-top { grid-template-columns:1fr 1fr; }
   }
-  @media (max-width: 900px) {
-    nav { padding: 0 24px; }
-    .nav-links { display: none; }
-    .hamburger { display: flex; }
-    #home { grid-template-columns: 1fr; }
-    .hero-right { height: 50vw; max-height: 400px; }
-    .hero-left { padding: 48px 24px; }
-    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
-    .about-images { display: grid; grid-template-columns: 1fr 1fr; }
-    .about-img.offset { margin-top: 0; }
-    section { padding: 80px 24px; }
-    footer { padding: 40px 24px; flex-direction: column; align-items: flex-start; }
-    .services-header { flex-direction: column; align-items: flex-start; gap: 12px; }
-    .services-note { text-align: left; }
-    .gallery-grid { columns: 2; }
-    .gallery-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-    .form-row { grid-template-columns: 1fr; }
-    .hero-badge { left: 0; }
+  @media(max-width:900px) {
+    nav { padding:0 20px; }
+    .nav-links { display:none; }
+    .hamburger { display:flex; }
+    #home { grid-template-columns:1fr; }
+    .hero-right { height:55vw; }
+    .hero-left { padding:48px 24px; }
+    .two-col,.contact-grid { grid-template-columns:1fr; gap:48px; }
+    .services-grid { grid-template-columns:1fr 1fr; }
+    .cater-grid { grid-template-columns:1fr 1fr; }
+    section { padding:80px 24px; }
+    #ventures { padding:64px 24px; }
+    .gallery-masonry { columns:2; }
+    .rentals-header { flex-direction:column; align-items:flex-start; }
+    footer { padding:40px 24px 24px; }
+    .footer-top { grid-template-columns:1fr 1fr; gap:28px; }
+    .gallery-header { flex-direction:column; align-items:flex-start; }
+    .form-row { grid-template-columns:1fr; }
+    .hero-badge { left:0; }
   }
-  @media (max-width: 600px) {
-    .gallery-grid { columns: 2; }
-    .services-grid { grid-template-columns: 1fr; }
-    .about-stats { grid-template-columns: 1fr 1fr; }
+  @media(max-width:580px) {
+    .ventures-grid { grid-template-columns:1fr; }
+    .services-grid { grid-template-columns:1fr; }
+    .cater-grid { grid-template-columns:1fr; }
+    .gallery-masonry { columns:2; }
+    .footer-top { grid-template-columns:1fr; }
   }
 </style>
 </head>
@@ -483,248 +288,378 @@
 <nav>
   <a href="#home" class="nav-logo">GALA<span>Signature Events & Integrity Rentals</span></a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
+    <li>
+      <a href="#ventures" class="has-drop">Services</a>
+      <div class="nav-drop">
+        <a href="#services">Event Planning</a>
+        <a href="#dj">DJ Services</a>
+        <a href="#photo">Photography & Video</a>
+        <a href="#catering">Catering</a>
+        <a href="#bar">Bar Services</a>
+      </div>
+    </li>
+    <li>
+      <a href="#rentals" class="has-drop">Rentals</a>
+      <div class="nav-drop">
+        <a href="#rentals" onclick="switchTab('tables')">Tables</a>
+        <a href="#rentals" onclick="switchTab('chairs')">Chairs</a>
+        <a href="#rentals" onclick="switchTab('stages')">Stages & Risers</a>
+        <a href="#rentals" onclick="switchTab('linens')">Linens & Drapes</a>
+        <a href="#rentals" onclick="switchTab('tents')">Tents & Canopies</a>
+        <a href="#rentals" onclick="switchTab('lighting')">Lighting</a>
+        <a href="#rentals" onclick="switchTab('backdrops')">Backdrops & Arches</a>
+        <a href="#rentals" onclick="switchTab('centerpieces')">Centerpieces & Décor</a>
+      </div>
+    </li>
     <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#contact" class="nav-cta">Book an Event</a></li>
+    <li><a href="#contact" class="nav-cta">Book Now</a></li>
   </ul>
-  <div class="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </div>
+  <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <button class="m-close" onclick="toggleMenu()">✕</button>
   <a href="#home" onclick="toggleMenu()">Home</a>
-  <a href="#about" onclick="toggleMenu()">About</a>
-  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#services" onclick="toggleMenu()">Event Planning</a>
+  <a href="#dj" onclick="toggleMenu()">DJ Services</a>
+  <a href="#photo" onclick="toggleMenu()">Photo & Video</a>
+  <a href="#catering" onclick="toggleMenu()">Catering</a>
+  <a href="#bar" onclick="toggleMenu()">Bar Services</a>
+  <div class="m-group">
+    <div class="m-group-label">Rentals by Category</div>
+    <a href="#rentals" onclick="toggleMenu();switchTab('tables')">Tables</a>
+    <a href="#rentals" onclick="toggleMenu();switchTab('chairs')">Chairs</a>
+    <a href="#rentals" onclick="toggleMenu();switchTab('stages')">Stages & Risers</a>
+    <a href="#rentals" onclick="toggleMenu();switchTab('linens')">Linens & Drapes</a>
+    <a href="#rentals" onclick="toggleMenu();switchTab('tents')">Tents</a>
+    <a href="#rentals" onclick="toggleMenu();switchTab('lighting')">Lighting</a>
+    <a href="#rentals" onclick="toggleMenu();switchTab('backdrops')">Backdrops & Arches</a>
+    <a href="#rentals" onclick="toggleMenu();switchTab('centerpieces')">Centerpieces</a>
+  </div>
   <a href="#gallery" onclick="toggleMenu()">Gallery</a>
-  <a href="#contact" onclick="toggleMenu()">Book an Event</a>
+  <a href="#contact" onclick="toggleMenu()">Book Now</a>
 </div>
 
 <!-- HERO -->
 <section id="home">
   <div class="hero-left">
     <div class="hero-eyebrow reveal">Hampton Roads, Virginia</div>
-    <h1 class="hero-title reveal">Events That<br>Leave a <em>Lasting</em><br>Impression</h1>
-    <p class="hero-body reveal">From intimate gatherings to grand celebrations — we handle every detail, from full event planning and coordination to premium furniture and décor rentals.</p>
+    <h1 class="hero-title reveal">Your Event.<br>Our <em>Passion.</em><br>Every Detail.</h1>
+    <p class="hero-body reveal">Full-service event planning, premium rentals, DJ, photography, catering, and bar services — all under one roof. We make extraordinary happen.</p>
     <div class="hero-actions reveal">
       <a href="#contact" class="btn-primary">Start Planning</a>
-      <a href="#gallery" class="btn-ghost">View Our Work</a>
+      <a href="#rentals" class="btn-outline">View Rentals</a>
     </div>
     <div class="hero-phones reveal">
-      <div class="hero-phone"><strong>(757) 977-2335</strong>Bookings & Events</div>
+      <div class="hero-phone"><strong>(757) 977-2335</strong>Events & Planning</div>
       <div class="hero-phone"><strong>(757) 966-8496</strong>Rentals & Inquiries</div>
     </div>
   </div>
   <div class="hero-right">
-    <div class="hero-right-grid">
-      <div class="hero-img tall">
-        <img src="https://lh3.googleusercontent.com/pw/AP1GczOgDTJIX_lMWr1aOP87ND0UgZ0WLZQzy3Rvzc17cy7KVFx-3drkV2-hOnM4S6hIMOxfOr2XuylmHxKRWXK3RJP5RfiuujJ20m1vhg4hseOGWCHTlqZl=w800-h1200-no" alt="Event setup">
-      </div>
-      <div class="hero-img">
-        <img src="https://lh3.googleusercontent.com/pw/AP1GczNe2EZLzlz386WKw3gtTjpqDlPZM7kF-dxMDsc6h8ZxYvEnFcpq3RoopYw8j6gsnIiISYCdiYHOehnzEEVRpuDQXXwdghVFBD1Ui28A2FiPh7GbgyFo=w800-h600-no" alt="Event decor">
-      </div>
-      <div class="hero-img">
-        <img src="https://lh3.googleusercontent.com/pw/AP1GczMK98flkPg8zmK-cT2nwuXIpeTyhzKkoY-Mv-unqceBQtGzFiLwXxz4imKuq6kL4iHTwMGqjTnSyItTePrBZB9fyqEO_bTCUmoKqI7uJcYgMwUusggi=w800-h600-no" alt="Event decoration">
-      </div>
+    <div class="hero-grid">
+      <div class="hero-img tall"><img src="https://lh3.googleusercontent.com/pw/AP1GczOgDTJIX_lMWr1aOP87ND0UgZ0WLZQzy3Rvzc17cy7KVFx-3drkV2-hOnM4S6hIMOxfOr2XuylmHxKRWXK3RJP5RfiuujJ20m1vhg4hseOGWCHTlqZl=w800-h1200-no" alt="Event hall"></div>
+      <div class="hero-img"><img src="https://lh3.googleusercontent.com/pw/AP1GczNe2EZLzlz386WKw3gtTjpqDlPZM7kF-dxMDsc6h8ZxYvEnFcpq3RoopYw8j6gsnIiISYCdiYHOehnzEEVRpuDQXXwdghVFBD1Ui28A2FiPh7GbgyFo=w800-h600-no" alt="Decor"></div>
+      <div class="hero-img"><img src="https://lh3.googleusercontent.com/pw/AP1GczMK98flkPg8zmK-cT2nwuXIpeTyhzKkoY-Mv-unqceBQtGzFiLwXxz4imKuq6kL4iHTwMGqjTnSyItTePrBZB9fyqEO_bTCUmoKqI7uJcYgMwUusggi=w800-h600-no" alt="Setup"></div>
     </div>
-    <div class="hero-badge">
-      <strong>5+</strong>Years of Excellence
-    </div>
+    <div class="hero-badge"><strong>5+</strong>Years of Excellence</div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-grid">
-    <div class="about-text">
-      <div class="section-label reveal">Our Story</div>
-      <h2 class="section-title reveal">Two Brands,<br>One <em>Vision</em></h2>
-      <p class="about-body reveal">GALA Signature Events brings full-service event planning and coordination to Hampton Roads — handling every detail from concept to teardown. Our sister brand, Integrity Rentals, provides premium furniture, linens, and décor for events of every scale.</p>
-      <p class="about-body reveal">Together, we've built a reputation for flawless execution, creative vision, and client-first service. Whether you need us to plan everything or simply supply the perfect chairs and centerpieces, we show up with intention.</p>
-      <div class="about-stats reveal">
-        <div><div class="stat-num">5+</div><div class="stat-label">Years Serving Virginia</div></div>
-        <div><div class="stat-num">200+</div><div class="stat-label">Events Executed</div></div>
-        <div><div class="stat-num">100%</div><div class="stat-label">Client Dedication</div></div>
-      </div>
-    </div>
-    <div class="about-images reveal">
-      <div class="about-img">
-        <img src="https://lh3.googleusercontent.com/pw/AP1GczNWGcvA0zBZKZ9az001Ykk8VTZfHnlZadh4FscBpBqSA1TskvBFiG1Ravar9heCfLoqgTMgSdUqpWBJp_jU20LpofaTYFXGK11G410hazpLCnG2N2rZ=w600-h800-no" alt="Decorated event hall">
-      </div>
-      <div class="about-img offset">
-        <img src="https://lh3.googleusercontent.com/pw/AP1GczOJir5WovByWq2imtkfvfD698BRJH8bw3Mr6DRwwdPeCn8nwwUYdBE0J3qCYWhCjXOBAj-8_QBE5-s4u5b9PusX7ZB_ygbBjQq9d1op0rZ29lqbWuAF=w600-h800-no" alt="Event centerpiece">
-      </div>
-    </div>
+<!-- VENTURES -->
+<section id="ventures">
+  <div class="section-label ventures-label reveal">Everything We Do</div>
+  <h2 class="section-title reveal" style="color:var(--cream)">One Company.<br><em>Endless Possibilities.</em></h2>
+  <div class="ventures-grid">
+    <a href="#services" class="venture-card reveal"><div class="venture-icon">🎪</div><div class="venture-name">Event Planning</div><p class="venture-desc">Full-service coordination from concept to cleanup — weddings, birthdays, corporate, and more.</p><div class="venture-link">Explore →</div></a>
+    <a href="#rentals" class="venture-card reveal"><div class="venture-icon">🪑</div><div class="venture-name">Rentals</div><p class="venture-desc">Tables, chairs, stages, linens, tents, lighting, backdrops, and décor for any event size.</p><div class="venture-link">View Catalog →</div></a>
+    <a href="#dj" class="venture-card reveal"><div class="venture-icon">🎧</div><div class="venture-name">DJ Services</div><p class="venture-desc">Professional DJ with state-of-the-art sound and lighting to keep your crowd moving all night.</p><div class="venture-link">Learn More →</div></a>
+    <a href="#photo" class="venture-card reveal"><div class="venture-icon">📷</div><div class="venture-name">Photography & Video</div><p class="venture-desc">Capturing the moments that matter most — from candid shots to cinematic highlight reels.</p><div class="venture-link">See Packages →</div></a>
+    <a href="#catering" class="venture-card reveal"><div class="venture-icon">🍽️</div><div class="venture-name">Catering</div><p class="venture-desc">Custom menus and full-service catering for events of all types and guest counts.</p><div class="venture-link">Learn More →</div></a>
+    <a href="#bar" class="venture-card reveal"><div class="venture-icon">🍸</div><div class="venture-name">Bar Services</div><p class="venture-desc">Craft cocktails, open bar packages, and professional bartenders for your celebration.</p><div class="venture-link">View Packages →</div></a>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section id="services">
-  <div class="services-header reveal">
+<!-- RENTALS MENU -->
+<section id="rentals">
+  <div class="rentals-header">
     <div>
-      <div class="section-label">What We Offer</div>
-      <h2 class="section-title">Services &amp; <em>Pricing</em></h2>
+      <div class="section-label reveal">Integrity Rentals</div>
+      <h2 class="section-title reveal">Rental <em>Catalog</em></h2>
     </div>
-    <p class="services-note">Custom packages available. Contact us for a personalized quote tailored to your event.</p>
+    <div class="rentals-tabs reveal" id="rentalTabs">
+      <button class="rtab active" onclick="switchTab('tables')">Tables</button>
+      <button class="rtab" onclick="switchTab('chairs')">Chairs</button>
+      <button class="rtab" onclick="switchTab('stages')">Stages</button>
+      <button class="rtab" onclick="switchTab('linens')">Linens</button>
+      <button class="rtab" onclick="switchTab('tents')">Tents</button>
+      <button class="rtab" onclick="switchTab('lighting')">Lighting</button>
+      <button class="rtab" onclick="switchTab('backdrops')">Backdrops</button>
+      <button class="rtab" onclick="switchTab('centerpieces')">Centerpieces</button>
+    </div>
   </div>
+
+  <div class="rentals-category active" id="cat-tables">
+    <div class="cat-header"><div class="cat-title">Tables</div><p class="cat-desc">Sturdy, well-maintained tables in a variety of shapes and sizes to suit any layout or guest count.</p></div>
+    <div class="items-grid">
+      <div class="item-card"><div class="item-name">60" Round Table</div><p class="item-desc">Seats 8–10 guests. Ideal for banquets and wedding receptions.</p><div class="item-price">Call for pricing</div><span class="item-tag">Most Popular</span></div>
+      <div class="item-card"><div class="item-name">72" Round Table</div><p class="item-desc">Seats 10–12 guests. Great for larger round banquet arrangements.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">6ft Rectangular Table</div><p class="item-desc">Versatile long table. Perfect for buffets, gift tables, or head tables.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">8ft Rectangular Table</div><p class="item-desc">Extra-long for large buffets or banquet-style seating arrangements.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">Cocktail / High-Top Table</div><p class="item-desc">36" round bistro-height table for cocktail hours and standing receptions.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">Kids' Round Table (3ft)</div><p class="item-desc">Low round table perfect for children's seating areas.</p><div class="item-price">Call for pricing</div></div>
+    </div>
+  </div>
+
+  <div class="rentals-category" id="cat-chairs">
+    <div class="cat-header"><div class="cat-title">Chairs</div><p class="cat-desc">Elegant seating options for indoor and outdoor events, available in multiple styles and finishes.</p></div>
+    <div class="items-grid">
+      <div class="item-card"><div class="item-name">Chiavari Chair</div><p class="item-desc">Classic ballroom chair in gold, silver, white, or black. Available with cushion.</p><div class="item-price">Call for pricing</div><span class="item-tag">Most Popular</span></div>
+      <div class="item-card"><div class="item-name">Ghost / Acrylic Chair</div><p class="item-desc">Modern clear acrylic chair — sleek and contemporary for any theme.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">White Folding Chair</div><p class="item-desc">Clean folding chair, lightweight and ideal for outdoor ceremonies.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">Black Folding Chair</div><p class="item-desc">Classic black folding chair for indoor and outdoor use.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">Cross-Back Chair</div><p class="item-desc">Rustic wood-style chair — perfect for farm or boho-themed events.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">Lounge Chair / Sofa Set</div><p class="item-desc">Upholstered lounge seating for VIP areas and cocktail lounges.</p><div class="item-price">Call for pricing</div></div>
+    </div>
+  </div>
+
+  <div class="rentals-category" id="cat-stages">
+    <div class="cat-header"><div class="cat-title">Stages & Risers</div><p class="cat-desc">Professional staging solutions to elevate performers, speakers, or head tables at your event.</p></div>
+    <div class="items-grid">
+      <div class="item-card"><div class="item-name">Stage Section (4x4 ft)</div><p class="item-desc">Modular 4x4 ft section, 8–24" height adjustable. Combine for custom sizes.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">Small Stage Package (8x8)</div><p class="item-desc">8x8 ft stage ideal for speakers, small bands, or DJ setups.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">Medium Stage Package (8x16)</div><p class="item-desc">8x16 ft platform stage. Great for performances and presentations.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">Large Stage Package (16x16)</div><p class="item-desc">Full 16x16 ft stage suitable for larger events and shows.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">Stage Stairs (Pair)</div><p class="item-desc">Carpeted stairs for safe and elegant access to any platform height.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">Dance Floor (Per 3x3 Section)</div><p class="item-desc">Gloss white or black/white checkered dance floor panels.</p><div class="item-price">Call for pricing</div></div>
+    </div>
+  </div>
+
+  <div class="rentals-category" id="cat-linens">
+    <div class="cat-header"><div class="cat-title">Linens & Drapes</div><p class="cat-desc">Premium linens in dozens of colors and fabrics to elevate your tablescape and venue atmosphere.</p></div>
+    <div class="items-grid">
+      <div class="item-card"><div class="item-name">Round Tablecloth (90")</div><p class="item-desc">Floor-length for 60" round table. Polyester, satin, sequin, and more.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">Rectangular Tablecloth (6ft)</div><p class="item-desc">Full drape for 6ft tables. Multiple fabric and color options.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">Table Runner</div><p class="item-desc">Satin, burlap, sequin, or lace runners — 12"x108".</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">Cloth Napkins</div><p class="item-desc">Dinner napkins in matching colors to your tablecloth selection.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">Cocktail Spandex Cover</div><p class="item-desc">Fitted stretch covers for high-top cocktail tables.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">Pipe & Drape (Per Linear Ft)</div><p class="item-desc">Backdrop or room-divider draping in sheer or blackout fabric.</p><div class="item-price">Call for pricing</div></div>
+    </div>
+  </div>
+
+  <div class="rentals-category" id="cat-tents">
+    <div class="cat-header"><div class="cat-title">Tents & Canopies</div><p class="cat-desc">Weather-appropriate shelter for outdoor events, from intimate gatherings to large receptions.</p></div>
+    <div class="items-grid">
+      <div class="item-card"><div class="item-name">10x10 Canopy Tent</div><p class="item-desc">Pop-up canopy ideal for small vendor booths or outdoor bar setups.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">20x20 Frame Tent</div><p class="item-desc">Sidewall-optional frame tent. Great for backyard events up to 40 guests.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">20x40 Frame Tent</div><p class="item-desc">Covers up to 80 guests. Includes optional sidewalls and lighting attachments.</p><div class="item-price">Call for pricing</div><span class="item-tag">Most Popular</span></div>
+      <div class="item-card"><div class="item-name">40x60 Pole Tent</div><p class="item-desc">Large-scale tent for 150–200 guests. Elegant peaked roof design.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">Tent Sidewall Panels</div><p class="item-desc">Clear or solid white sidewall panels for wind and rain protection.</p><div class="item-price">Call for pricing</div></div>
+    </div>
+  </div>
+
+  <div class="rentals-category" id="cat-lighting">
+    <div class="cat-header"><div class="cat-title">Lighting</div><p class="cat-desc">Set the mood with professional event lighting that transforms any space from ordinary to extraordinary.</p></div>
+    <div class="items-grid">
+      <div class="item-card"><div class="item-name">String Lights (50ft strand)</div><p class="item-desc">Warm Edison or globe string lights for tents and outdoor canopies.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">LED Uplighting (Per Unit)</div><p class="item-desc">RGB uplights with color customization to match your event theme.</p><div class="item-price">Call for pricing</div><span class="item-tag">Crowd Favorite</span></div>
+      <div class="item-card"><div class="item-name">Pin Spot Lights</div><p class="item-desc">Directed spotlights to highlight centerpieces, cake tables, or focal points.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">Gobo Monogram Light</div><p class="item-desc">Custom monogram or pattern projected onto walls or dance floors.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">Market / Bistro Lights</div><p class="item-desc">Overhead market string lights on poles for an outdoor bistro feel.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">LED Dance Floor Lights</div><p class="item-desc">Automated moving head lights synced with music for dance floors.</p><div class="item-price">Call for pricing</div></div>
+    </div>
+  </div>
+
+  <div class="rentals-category" id="cat-backdrops">
+    <div class="cat-header"><div class="cat-title">Backdrops & Arches</div><p class="cat-desc">Stunning focal points for ceremonies, photo ops, and head table setups.</p></div>
+    <div class="items-grid">
+      <div class="item-card"><div class="item-name">Organic Balloon Arch</div><p class="item-desc">Custom organic balloon arch in your color palette. Full installation included.</p><div class="item-price">Call for pricing</div><span class="item-tag">Most Requested</span></div>
+      <div class="item-card"><div class="item-name">Floral / Ceremony Arch</div><p class="item-desc">Wooden or metal arch with floral accents for ceremony or photo backdrops.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">Sequin Backdrop (8x8)</div><p class="item-desc">Shimmering sequin backdrop in gold, silver, champagne, or rose gold.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">Photo Booth Backdrop Kit</div><p class="item-desc">Frame + backdrop + props for a DIY or staffed photo booth.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">Custom Neon Sign</div><p class="item-desc">LED neon signs with custom text — "Mr & Mrs", birthday names, etc.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">Balloon Columns (Pair)</div><p class="item-desc">Freestanding balloon columns in custom colors for entrances or stages.</p><div class="item-price">Call for pricing</div></div>
+    </div>
+  </div>
+
+  <div class="rentals-category" id="cat-centerpieces">
+    <div class="cat-header"><div class="cat-title">Centerpieces & Décor</div><p class="cat-desc">Finishing touches that pull your tables and venue together with elegance and style.</p></div>
+    <div class="items-grid">
+      <div class="item-card"><div class="item-name">Tall Cylinder Vase (24")</div><p class="item-desc">Glass cylinder vase with floating candles or floral arrangements.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">Low Floral Centerpiece</div><p class="item-desc">Lush low-profile floral arrangement in your color palette.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">Candelabra (Gold / Silver)</div><p class="item-desc">5-arm metal candelabra with taper candles. Classic and dramatic.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">Mirror Tile / Placemat</div><p class="item-desc">12x12" mirror tiles to add sparkle and depth to table setups.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">Votive Candle Set (6-pack)</div><p class="item-desc">Glass votive holders with tea light or flameless LED candles.</p><div class="item-price">Call for pricing</div></div>
+      <div class="item-card"><div class="item-name">Charger Plates (Per 10)</div><p class="item-desc">Decorative charger plates in gold, silver, rose gold, or black.</p><div class="item-price">Call for pricing</div></div>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:48px;" class="reveal">
+    <p style="font-size:0.82rem;color:var(--warm-gray);margin-bottom:20px;">Prices vary by quantity, duration, and event type. Contact us for a custom rental quote.</p>
+    <a href="#contact" class="btn-primary">Request a Quote</a>
+  </div>
+</section>
+
+<!-- EVENT PLANNING -->
+<section id="services">
+  <div class="section-label reveal">Event Planning</div>
+  <h2 class="section-title reveal">GALA Signature <em>Events</em></h2>
+  <p class="section-body reveal">From intimate celebrations to grand affairs — we handle every detail so you can be fully present. Our team manages timelines, vendors, décor, and logistics from start to finish.</p>
   <div class="services-grid">
-    <div class="service-card reveal">
-      <div class="service-num">01</div>
-      <div class="service-name">Event Planning &amp; Coordination</div>
-      <p class="service-desc">Full-service event planning from concept to execution. We manage timelines, vendors, logistics, and every detail so you can be fully present on your big day.</p>
-      <ul class="service-items">
-        <li>Concept & theme development</li>
-        <li>Vendor sourcing & management</li>
-        <li>Day-of coordination</li>
-        <li>Budget planning & tracking</li>
-        <li>Setup & teardown oversight</li>
-      </ul>
-      <div class="service-price">Starting at — Contact for Quote</div>
+    <div class="svc-card reveal"><div class="svc-num">01</div><div class="svc-name">Full-Service Planning</div><p class="svc-desc">End-to-end event management from your initial vision through final breakdown.</p><ul class="svc-list"><li>Concept & theme development</li><li>Vendor sourcing & management</li><li>Budget planning & tracking</li><li>Timeline & logistics</li><li>Setup & teardown oversight</li></ul></div>
+    <div class="svc-card reveal"><div class="svc-num">02</div><div class="svc-name">Day-Of Coordination</div><p class="svc-desc">Already have a plan? Let us take the reins on your event day so you enjoy every moment.</p><ul class="svc-list"><li>Vendor check-in & communication</li><li>Timeline execution</li><li>Guest management</li><li>On-site troubleshooting</li><li>Post-event breakdown</li></ul></div>
+    <div class="svc-card reveal"><div class="svc-num">03</div><div class="svc-name">Venue Styling & Design</div><p class="svc-desc">Transform any space into an extraordinary experience with our design expertise.</p><ul class="svc-list"><li>Floor plan & layout design</li><li>Color palette & theme styling</li><li>Lighting consultation</li><li>Entrance & focal point design</li><li>Full delivery, setup & breakdown</li></ul></div>
+  </div>
+  <div style="text-align:center;margin-top:44px;" class="reveal"><a href="#contact" class="btn-primary">Plan Your Event</a></div>
+</section>
+
+<!-- DJ -->
+<section id="dj">
+  <div class="two-col">
+    <div>
+      <div class="section-label dark-label reveal">Entertainment</div>
+      <h2 class="section-title dark-title reveal">Professional<br><em>DJ Services</em></h2>
+      <p class="dark-body reveal">From wedding receptions to birthday bashes and corporate parties — our DJ brings the energy, music, and professional sound & lighting your event deserves. We read the room and keep the dance floor packed all night.</p>
+      <div class="pkg-list reveal">
+        <div class="pkg-item"><div class="pkg-name">Essentials Package</div><div class="pkg-detail">Professional DJ · 4 hours · Quality speaker setup · Standard playlist management</div><div class="pkg-price">Call for pricing</div></div>
+        <div class="pkg-item"><div class="pkg-name">Premium Package</div><div class="pkg-detail">Pro DJ · 6 hours · Full PA system · LED uplighting · Wireless mic · Custom playlist</div><div class="pkg-price">Call for pricing</div></div>
+        <div class="pkg-item"><div class="pkg-name">Signature Package</div><div class="pkg-detail">DJ + Emcee · 8 hours · Premium sound · Moving head lights · Fog machine · Monogram · Full MC script</div><div class="pkg-price">Call for pricing</div></div>
+      </div>
+      <div style="margin-top:28px;" class="reveal"><a href="#contact" class="btn-gold">Book the DJ</a></div>
     </div>
-    <div class="service-card reveal">
-      <div class="service-num">02</div>
-      <div class="service-name">Décor &amp; Rental Packages</div>
-      <p class="service-desc">Premium furniture, linens, centerpieces, and decorative elements available for rent. Mix and match to create exactly the atmosphere you envision.</p>
-      <ul class="service-items">
-        <li>Chiavari & Ghost chairs</li>
-        <li>Tables (round, rectangle, cocktail)</li>
-        <li>Linens & table runners</li>
-        <li>Centerpieces & floral arrangements</li>
-        <li>Backdrops & balloon arches</li>
-      </ul>
-      <div class="service-price">Pricing varies by item & quantity</div>
+    <div class="reveal">
+      <div class="feature-grid">
+        <div class="feature-card"><div class="feature-icon">🎵</div><div class="feature-name">Custom Playlists</div><div class="feature-text">You choose the vibe. We build the playlist and take live requests.</div></div>
+        <div class="feature-card"><div class="feature-icon">🔊</div><div class="feature-name">Pro Sound</div><div class="feature-text">Crystal-clear PA systems scaled to your venue size.</div></div>
+        <div class="feature-card"><div class="feature-icon">💡</div><div class="feature-name">Club-Level Lighting</div><div class="feature-text">Moving heads, color wash, strobes, and lasers available.</div></div>
+        <div class="feature-card"><div class="feature-icon">🎤</div><div class="feature-name">MC / Emcee</div><div class="feature-text">Keep your event on schedule with an experienced emcee.</div></div>
+      </div>
+      <div class="eq-bar" style="margin-top:16px"><div class="eq-fill" style="width:95%"></div></div>
+      <div class="eq-bar"><div class="eq-fill" style="width:82%;animation-delay:0.3s"></div></div>
+      <div class="eq-bar"><div class="eq-fill" style="width:90%;animation-delay:0.6s"></div></div>
     </div>
-    <div class="service-card reveal">
-      <div class="service-num">03</div>
-      <div class="service-name">Venue Styling</div>
-      <p class="service-desc">Transform any space into an extraordinary experience. We work with your chosen venue to design a layout that maximizes both beauty and functionality.</p>
-      <ul class="service-items">
-        <li>Floor plan & layout design</li>
-        <li>Lighting consultation</li>
-        <li>Color palette & theme styling</li>
-        <li>Entrance & focal point design</li>
-        <li>Delivery, setup & breakdown</li>
-      </ul>
-      <div class="service-price">Starting at — Contact for Quote</div>
+  </div>
+</section>
+
+<!-- PHOTO & VIDEO -->
+<section id="photo">
+  <div class="two-col">
+    <div>
+      <div class="section-label reveal">Capture Every Moment</div>
+      <h2 class="section-title reveal">Photography &amp;<br><em>Videography</em></h2>
+      <p class="section-body reveal">Professional photography and video coverage to preserve the memories of your event for years to come. From candid shots to polished cinematic edits — we've got it covered.</p>
+      <div style="margin-top:28px;" class="reveal"><a href="#contact" class="btn-primary">Book a Photographer</a></div>
+    </div>
+    <div class="pkg-list-light reveal">
+      <div class="pkg-light"><div><div class="pkg-light-name">Photography — 4 Hours</div><div class="pkg-light-detail">1 photographer · 300+ edited digital images · Online gallery within 2 weeks</div></div><div class="pkg-light-price">Call for pricing</div></div>
+      <div class="pkg-light"><div><div class="pkg-light-name">Photography — 8 Hours</div><div class="pkg-light-detail">1–2 photographers · 500+ edited images · Online gallery + USB drive</div></div><div class="pkg-light-price">Call for pricing</div></div>
+      <div class="pkg-light"><div><div class="pkg-light-name">Highlight Reel (Video)</div><div class="pkg-light-detail">3–5 minute cinematic highlight video · Drone footage available · Digital delivery</div></div><div class="pkg-light-price">Call for pricing</div></div>
+      <div class="pkg-light"><div><div class="pkg-light-name">Photo + Video Bundle</div><div class="pkg-light-detail">Full-day photo & video · Highlight reel + ceremony footage · All digital files</div></div><div class="pkg-light-price">Call for pricing</div></div>
+      <div class="pkg-light"><div><div class="pkg-light-name">Photo Booth Add-On</div><div class="pkg-light-detail">2 hours · Instant prints · Custom template · Props included</div></div><div class="pkg-light-price">Call for pricing</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CATERING -->
+<section id="catering">
+  <div class="section-label dark-label reveal">Food & Service</div>
+  <h2 class="section-title dark-title reveal">Catering <em>Services</em></h2>
+  <p class="section-body reveal" style="color:rgba(245,242,236,0.65);margin-bottom:36px;">Custom menus designed around your event theme, dietary needs, and guest preferences. From buffet stations to elegant plated dinners.</p>
+  <div class="cater-grid">
+    <div class="cater-card reveal"><div class="cater-icon">🍗</div><div class="cater-name">Buffet Service</div><div class="cater-text">Chef-curated buffet stations with hot entrées, sides, salads, and desserts. Staffed service included.</div></div>
+    <div class="cater-card reveal"><div class="cater-icon">🍽️</div><div class="cater-name">Plated Dinner Service</div><div class="cater-text">Elegant multi-course plated meals served tableside by our professional catering staff.</div></div>
+    <div class="cater-card reveal"><div class="cater-icon">🥗</div><div class="cater-name">Cocktail Hour Bites</div><div class="cater-text">Passed hors d'oeuvres, charcuterie boards, and cocktail station setups.</div></div>
+    <div class="cater-card reveal"><div class="cater-icon">🎂</div><div class="cater-name">Dessert Stations</div><div class="cater-text">Custom dessert bars, candy tables, and sweet stations for any celebration.</div></div>
+    <div class="cater-card reveal"><div class="cater-icon">🌿</div><div class="cater-name">Dietary-Friendly Menus</div><div class="cater-text">Vegetarian, vegan, gluten-free, and allergy-conscious options available.</div></div>
+    <div class="cater-card reveal"><div class="cater-icon">👨‍🍳</div><div class="cater-name">Full Staffing</div><div class="cater-text">Professional servers, kitchen staff, and catering coordinator with all packages.</div></div>
+  </div>
+  <div style="text-align:center;margin-top:44px;" class="reveal"><a href="#contact" class="btn-gold">Request a Menu</a></div>
+</section>
+
+<!-- BAR -->
+<section id="bar">
+  <div class="two-col" style="align-items:start">
+    <div>
+      <div class="section-label reveal">Cheers to That</div>
+      <h2 class="section-title reveal">Bar <em>Services</em></h2>
+      <p class="section-body reveal">Professional bartending and beverage service to elevate your event. Open bar packages, signature cocktails, mocktails, and everything in between.</p>
+      <div class="pkg-list-light reveal" style="margin-top:28px">
+        <div class="pkg-light"><div><div class="pkg-light-name">Beer & Wine Package</div><div class="pkg-light-detail">Beer & wine selection · 1 bartender per 75 guests · Glassware · 4 hrs</div></div><div class="pkg-light-price">Call for pricing</div></div>
+        <div class="pkg-light"><div><div class="pkg-light-name">Open Bar Package</div><div class="pkg-light-detail">Full spirits, beer & wine · 1 bartender per 50 guests · 5 hrs</div></div><div class="pkg-light-price">Call for pricing</div></div>
+        <div class="pkg-light"><div><div class="pkg-light-name">Signature Cocktail Package</div><div class="pkg-light-detail">2–3 custom cocktails + open bar · Themed garnishes · Personalized menu card · 5 hrs</div></div><div class="pkg-light-price">Call for pricing</div></div>
+        <div class="pkg-light"><div><div class="pkg-light-name">Mocktail Bar</div><div class="pkg-light-detail">Full non-alcoholic cocktail menu · Sparkling waters, juices, infused lemonades</div></div><div class="pkg-light-price">Call for pricing</div></div>
+      </div>
+      <div style="margin-top:24px;" class="reveal"><a href="#contact" class="btn-primary">Get Bar Pricing</a></div>
+    </div>
+    <div class="bar-menu reveal">
+      <div class="bar-cat-title" style="margin-top:0">Signature Cocktails (Sample)</div>
+      <div class="bar-item"><div><div class="bar-item-name">Midnight Garden</div><div class="bar-item-note">Gin · elderflower · cucumber · lime</div></div><div class="bar-item-price">Custom</div></div>
+      <div class="bar-item"><div><div class="bar-item-name">Golden Hour Spritz</div><div class="bar-item-note">Prosecco · peach nectar · orange bitters · rosemary</div></div><div class="bar-item-price">Custom</div></div>
+      <div class="bar-item"><div><div class="bar-item-name">Velvet Smoke</div><div class="bar-item-note">Bourbon · honey · smoked maple · orange peel</div></div><div class="bar-item-price">Custom</div></div>
+      <div class="bar-item"><div><div class="bar-item-name">Starlight Mule</div><div class="bar-item-note">Vodka · ginger beer · cranberry · lime · edible glitter</div></div><div class="bar-item-price">Custom</div></div>
+      <div class="bar-cat-title">Mocktails</div>
+      <div class="bar-item"><div><div class="bar-item-name">Sunset Lemonade</div><div class="bar-item-note">Strawberry · lemon · basil · sparkling water</div></div><div class="bar-item-price">Included</div></div>
+      <div class="bar-item"><div><div class="bar-item-name">Tropical Breeze</div><div class="bar-item-note">Mango · pineapple · coconut · mint</div></div><div class="bar-item-price">Included</div></div>
+      <div class="bar-item"><div><div class="bar-item-name">Cucumber Cooler</div><div class="bar-item-note">Cucumber · lime · elderflower · tonic</div></div><div class="bar-item-price">Included</div></div>
     </div>
   </div>
 </section>
 
 <!-- GALLERY -->
 <section id="gallery">
-  <div class="gallery-header reveal">
+  <div class="gallery-header">
     <div>
-      <div class="section-label">Our Portfolio</div>
-      <h2 class="section-title">Recent <em>Events</em></h2>
+      <div class="section-label reveal">Our Work</div>
+      <h2 class="section-title reveal">Event <em>Gallery</em></h2>
     </div>
-    <div class="gallery-filter">
-      <button class="filter-btn active" onclick="filterGallery(this, 'all')">All</button>
-      <button class="filter-btn" onclick="filterGallery(this, 'setup')">Setups</button>
-      <button class="filter-btn" onclick="filterGallery(this, 'decor')">Décor</button>
+    <div class="gallery-tabs reveal">
+      <button class="gtab active" onclick="filterGallery(this,'all')">All</button>
+      <button class="gtab" onclick="filterGallery(this,'setups')">Setups</button>
+      <button class="gtab" onclick="filterGallery(this,'decor')">Décor</button>
+      <a href="https://photos.google.com/share/AF1QipM6Zpb5gpfyIttwjMCRkcSUbmduln9yFuyLlIRf05x96ixYL3eZzT8G8DfTrxGFHQ?key=VTljaDByWXRxSWppU3ZSYXJadXY2anYzSEM5bU93" target="_blank" rel="noopener" class="gtab gold-tab">📷 View All Photos →</a>
     </div>
   </div>
-  <div class="gallery-grid" id="galleryGrid"></div>
+  <div class="gallery-masonry" id="galleryGrid"></div>
+  <div style="text-align:center;margin-top:36px;" class="reveal">
+    <a href="https://photos.google.com/share/AF1QipM6Zpb5gpfyIttwjMCRkcSUbmduln9yFuyLlIRf05x96ixYL3eZzT8G8DfTrxGFHQ?key=VTljaDByWXRxSWppU3ZSYXJadXY2anYzSEM5bU93" target="_blank" rel="noopener" class="btn-outline">See Our Full Portfolio →</a>
+  </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
   <div class="contact-grid">
-    <div class="contact-info">
-      <div class="section-label reveal">Get in Touch</div>
-      <h2 class="section-title reveal">Let's Create<br>Something <em>Unforgettable</em></h2>
-      <p class="contact-body reveal">Whether you're planning a wedding, birthday, corporate event, or celebration of life — we'd love to hear about your vision. Reach out and let's make it happen.</p>
-      <div class="contact-details reveal">
-        <div class="contact-detail">
-          <div class="contact-icon">📞</div>
-          <div class="contact-detail-text">
-            <strong>Phone — Events</strong>
-            (757) 977-2335
-          </div>
-        </div>
-        <div class="contact-detail">
-          <div class="contact-icon">📞</div>
-          <div class="contact-detail-text">
-            <strong>Phone — Rentals</strong>
-            (757) 966-8496
-          </div>
-        </div>
-        <div class="contact-detail">
-          <div class="contact-icon">📍</div>
-          <div class="contact-detail-text">
-            <strong>Service Area</strong>
-            Hampton Roads, Virginia &amp; surrounding areas
-          </div>
-        </div>
-        <div class="contact-detail">
-          <div class="contact-icon">🕐</div>
-          <div class="contact-detail-text">
-            <strong>Hours</strong>
-            Mon – Sat: 9am – 7pm · Sun: By Appointment
-          </div>
-        </div>
+    <div>
+      <div class="section-label dark-label reveal">Let's Connect</div>
+      <h2 class="section-title dark-title reveal">Ready to Create<br>Something <em>Extraordinary?</em></h2>
+      <p class="dark-body reveal">Whether you need full event planning, rentals only, a DJ, or the whole package — tell us about your event and we'll be in touch within 24 hours.</p>
+      <div class="reveal">
+        <div class="c-detail"><div class="c-icon">📞</div><div class="c-text"><strong>Events & Planning</strong>(757) 977-2335</div></div>
+        <div class="c-detail"><div class="c-icon">📞</div><div class="c-text"><strong>Rentals</strong>(757) 966-8496</div></div>
+        <div class="c-detail"><div class="c-icon">📍</div><div class="c-text"><strong>Service Area</strong>Hampton Roads, Virginia & surrounding areas</div></div>
+        <div class="c-detail"><div class="c-icon">🕐</div><div class="c-text"><strong>Hours</strong>Mon–Sat: 9am–7pm · Sun: By Appointment</div></div>
       </div>
     </div>
     <div class="reveal">
       <form class="contact-form" onsubmit="handleSubmit(event)">
         <div class="form-row">
-          <div class="form-group">
-            <label>First Name</label>
-            <input type="text" placeholder="Jane" required>
-          </div>
-          <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" placeholder="Smith" required>
-          </div>
+          <div class="f-group"><label>First Name</label><input type="text" placeholder="Jane" required></div>
+          <div class="f-group"><label>Last Name</label><input type="text" placeholder="Smith" required></div>
         </div>
         <div class="form-row">
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" placeholder="jane@email.com" required>
-          </div>
-          <div class="form-group">
-            <label>Phone</label>
-            <input type="tel" placeholder="(757) 000-0000">
-          </div>
+          <div class="f-group"><label>Email</label><input type="email" placeholder="jane@email.com" required></div>
+          <div class="f-group"><label>Phone</label><input type="tel" placeholder="(757) 000-0000"></div>
         </div>
         <div class="form-row">
-          <div class="form-group">
-            <label>Event Type</label>
-            <select>
-              <option value="">Select type...</option>
-              <option>Wedding</option>
-              <option>Birthday / Milestone</option>
-              <option>Baby / Bridal Shower</option>
-              <option>Corporate Event</option>
-              <option>Celebration of Life</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Estimated Date</label>
-            <input type="date">
-          </div>
+          <div class="f-group"><label>Service Needed</label><select><option value="">Select a service...</option><option>Full Event Planning</option><option>Rentals Only</option><option>DJ Services</option><option>Photography / Videography</option><option>Catering</option><option>Bar Services</option><option>Full Package (Multiple Services)</option></select></div>
+          <div class="f-group"><label>Event Type</label><select><option value="">Select type...</option><option>Wedding</option><option>Birthday / Milestone</option><option>Baby / Bridal Shower</option><option>Corporate Event</option><option>Celebration of Life</option><option>Graduation</option><option>Other</option></select></div>
         </div>
-        <div class="form-group">
-          <label>Service Needed</label>
-          <select>
-            <option value="">Select service...</option>
-            <option>Full Event Planning</option>
-            <option>Rentals Only</option>
-            <option>Venue Styling</option>
-            <option>Full Package (Planning + Rentals)</option>
-          </select>
+        <div class="form-row">
+          <div class="f-group"><label>Event Date</label><input type="date"></div>
+          <div class="f-group"><label>Guest Count</label><input type="number" placeholder="e.g. 150" min="1"></div>
         </div>
-        <div class="form-group">
-          <label>Tell Us About Your Event</label>
-          <textarea placeholder="Share your vision, guest count, venue, budget range, or anything else you'd like us to know..."></textarea>
-        </div>
-        <div class="form-submit">
-          <button type="submit" class="btn-submit">Send Inquiry</button>
-        </div>
-        <p class="form-disclaimer">We typically respond within 24 hours. For urgent inquiries, please call directly.</p>
+        <div class="f-group"><label>Tell Us About Your Event</label><textarea placeholder="Share your vision, venue, budget range, or anything else..."></textarea></div>
+        <button type="submit" class="btn-submit">Send Inquiry</button>
+        <p class="form-note">We respond within 24 hours. For urgent inquiries, call us directly.</p>
       </form>
     </div>
   </div>
@@ -732,153 +667,130 @@
 
 <!-- FOOTER -->
 <footer>
-  <div>
-    <div class="footer-logo">GALA Signature Events<span>& Integrity Rentals · Hampton Roads, VA</span></div>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">GALA Signature Events<span>& Integrity Rentals · Hampton Roads, VA</span></div>
+      <p class="footer-tagline">Hampton Roads' premier event planning, rentals, entertainment, and hospitality company. Making extraordinary moments happen since 2020.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Services</div>
+      <a href="#services">Event Planning</a>
+      <a href="#dj">DJ Services</a>
+      <a href="#photo">Photography & Video</a>
+      <a href="#catering">Catering</a>
+      <a href="#bar">Bar Services</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Rentals</div>
+      <a href="#rentals" onclick="switchTab('tables')">Tables</a>
+      <a href="#rentals" onclick="switchTab('chairs')">Chairs</a>
+      <a href="#rentals" onclick="switchTab('stages')">Stages & Risers</a>
+      <a href="#rentals" onclick="switchTab('linens')">Linens & Drapes</a>
+      <a href="#rentals" onclick="switchTab('lighting')">Lighting</a>
+      <a href="#rentals" onclick="switchTab('backdrops')">Backdrops & Arches</a>
+      <a href="#rentals" onclick="switchTab('centerpieces')">Centerpieces</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Quick Links</div>
+      <a href="#gallery">Gallery</a>
+      <a href="https://photos.google.com/share/AF1QipM6Zpb5gpfyIttwjMCRkcSUbmduln9yFuyLlIRf05x96ixYL3eZzT8G8DfTrxGFHQ?key=VTljaDByWXRxSWppU3ZSYXJadXY2anYzSEM5bU93" target="_blank">All Photos</a>
+      <a href="tel:7579772335">(757) 977-2335</a>
+      <a href="tel:7579668496">(757) 966-8496</a>
+      <a href="#contact">Book an Event</a>
+    </div>
   </div>
-  <ul class="footer-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <div class="footer-copy">© 2025 GALA Signature Events & Integrity Rentals. All rights reserved.</div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 GALA Signature Events & Integrity Rentals. All rights reserved.</div>
+    <div class="footer-phones">Events: <strong>(757) 977-2335</strong> &nbsp;·&nbsp; Rentals: <strong>(757) 966-8496</strong></div>
+  </div>
 </footer>
 
 <!-- LIGHTBOX -->
 <div id="lightbox">
   <div id="lb-wrap">
-    <button id="lb-close" onclick="closeLb()">✕ CLOSE</button>
-    <img id="lb-img" src="" alt="Gallery photo">
-    <div id="lb-nav">
+    <button id="lb-close" onclick="closeLb()">✕ Close</button>
+    <img id="lb-img" src="" alt="">
+    <div id="lb-bottom">
       <button onclick="lbNav(-1)">← Prev</button>
+      <span id="lb-count"></span>
       <button onclick="lbNav(1)">Next →</button>
     </div>
-    <div id="lb-counter-text"></div>
   </div>
 </div>
 
 <script>
-  // ── GALLERY DATA ──
-  const photos = [
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczNWGcvA0zBZKZ9az001Ykk8VTZfHnlZadh4FscBpBqSA1TskvBFiG1Ravar9heCfLoqgTMgSdUqpWBJp_jU20LpofaTYFXGK11G410hazpLCnG2N2rZ", tag: "setup" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczOJir5WovByWq2imtkfvfD698BRJH8bw3Mr6DRwwdPeCn8nwwUYdBE0J3qCYWhCjXOBAj-8_QBE5-s4u5b9PusX7ZB_ygbBjQq9d1op0rZ29lqbWuAF", tag: "decor" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczPb9ydYTIhRPJH_SBPItWJ_k0deadFVol7qvXgbOJLmLJBS-dnrPeLDIXMjR0F87LMUI5cTsHQtFKF1ic906AXbtOgPWxJxXlVlg9MdmJJ723hxyn-h", tag: "setup" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczMV3eNKM1x-iRuXYm1bRrD0qrC24M1EUA0wnIpDY5fg9-Iep1C95dnUVy1yc3IEuRs8ZTkYQYT5YMAj7tAsMmjaOnXpP9OLz_tn7JzbuHbsa3z82-h_", tag: "decor" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczNe2EZLzlz386WKw3gtTjpqDlPZM7kF-dxMDsc6h8ZxYvEnFcpq3RoopYw8j6gsnIiISYCdiYHOehnzEEVRpuDQXXwdghVFBD1Ui28A2FiPh7GbgyFo", tag: "setup" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczNRZawUaiiI0SvunQLcRqY4H2IwMJztObSftXid10H47Sr2dUHoDGKbHfOTgXUscjlXlg_ewOnZRJ1QJ4hXMCEMn7oIEYFaTrzcyRO0DOsdcjwnd4N1", tag: "decor" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczPs1Z9jNmvi8u7VawEpIuZuQmkU7UvK61aELt3ahQozPww5Po1Sh0g8tdmL2kg6stZUpU-7JIMEIlupJ6NfJJ1uLOge4kzHmYHX7rkQMYzw75_ArdLO", tag: "setup" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczM24hoonaMoU6GJlgdCaSnRHU9cF1yC8BjqF7yyszc4dxeXq-AtVc5x5vcq_zLth-yZGoysy2d-CS9E1h1qye8x535TNjDSVA_Btk-KkZIOQauR05oL", tag: "decor" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczOfW7ABIEAArWXe5yya2ID3sa98UryK6bzMI6r6Aj0siZmSf1wgmgMJaOr-TJp2_LvhRPMbK7H-MupL-sWwblta3kKFhjTfW2XJtPkQxNdc0Ai4sxcS", tag: "setup" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczPXq8OAR6Q66i_8fXhT6SnZJpj_2D2Y9eEqjsQVoIBcX7bLzMary85k2HfIHrf1x72LoIjXfkCEzOZI7hImxJT_slVFb7GQVqQ3WPc6qgMuR1Su2Daj", tag: "decor" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczOgDTJIX_lMWr1aOP87ND0UgZ0WLZQzy3Rvzc17cy7KVFx-3drkV2-hOnM4S6hIMOxfOr2XuylmHxKRWXK3RJP5RfiuujJ20m1vhg4hseOGWCHTlqZl", tag: "setup" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczM7GFCQTk9ayb8LZbK-0BZIhrG3Ajmd13EnqHkYZiOH1O-aHAt11k6mGupcm64Ktp_UtTSZFxmVwj9u4co7WYPlqrXV60kNURbIdo6Co2f3YSNsr7tq", tag: "decor" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczMK98flkPg8zmK-cT2nwuXIpeTyhzKkoY-Mv-unqceBQtGzFiLwXxz4imKuq6kL4iHTwMGqjTnSyItTePrBZB9fyqEO_bTCUmoKqI7uJcYgMwUusggi", tag: "setup" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczOZ515bgDkB2BymSyRPK_7zaKnS0tbajV76JSb69lZMtIIuq2iegDrs3hV002Uwjrx4ltj7Xk6Mj-c_DoAJAr9ZEvwc64EWqPEjQZgQziKZAwBm8GOw", tag: "decor" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczMql4aV1w8hxFGAOicICdijbfhiXbMnKoVV2XVn2yRLQbA0LNTmmBdH15FXaadYJqLUsFLcXoSLu962Ll909G4FbfEpOJUEqxzKdNTdNiI8YNdGDHgs", tag: "setup" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczMh3-nR2ewuNN6xuoKvlH-jBaAbf7czUI10fsBfNp1CcPrEOXyE1V8uqsg99qy_d-Y23BWzrzpAVmw-q--Ml_RTDIASTkkYtGR5jwfLviqeR7bZvMTN", tag: "decor" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczP2BvJpS3hq_GGTT78hddi3H_5jbJKbhJDUKYkeARiecNLDxMqa4jvRLaB_zmfB03GRtShc9Us_DIR214pApwJcTK6luTkXGNEJCRcwSCiBOATuQBIT", tag: "setup" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczNLSRrDC1pAGWK4Ws52nQNM-Ti4W30RvPE__MdtpQDE0iDPxlsH0Tt78xZpkMeokK0k1QeP7lkCtj79y0xEjN7rF5qzRrwy-fmxDg7uX6JmTSSRN6pT", tag: "decor" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczOdnbafXSkZGFOw-mscLtYErDmhiRrvYTzs6IhIgvob0MSG61ENLdWirNeUS1ItkNyDibHGYOWPZqbxv76XQJWY0Ua9TXAs1XFjH93wUHcrInJcVFsB", tag: "setup" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczPd6uMb0mBlMRGzAvNAc1mQ03haNyLT-NhFpj8FbCxmIlkwHB49FJ-XgQ2-jI_mfZ0zZMcc_JcXJNBHLqG9u8MNCy9T8gTEj5ieFL4iKw1eG9g3I0MU", tag: "decor" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczMbEzNFITJZY1tm8jqR8FsRZcdOr0BDIeybUIupQ7khTtNFDkfrd8SXaBmgOSYIvcDy2JEazOSvOpugx858_W5qDwjwM4EfIwCaOIw19u8yYnBTA5pq", tag: "setup" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczMI3oqfXRJP0eAQtUletVAQlJALN3a2PcOBUQ-Pc2zpdMSIA_1g7KnfFV6ccRZblyVyOORymDDTpNrRI-LJw9QCEzMOH4d9TWbCv9847qRI8JQQM627", tag: "decor" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczM4DIsjuAQsiHpkogiABA38dSiJCBQVdFHAewd_ZUd-oAtdzHe7gUExbiVC4rvs0-Gw-cgsuBiLN5nYQ0Eas5X8t3vRbZd9Q1plWOMKJEeMZaQDwpK-", tag: "setup" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczO3M8DmyzAOp2OuXLaRftgF8MmRktcUv-xhxYXx-sXfZ_pb87PJaIgWzu6PpRdy2ITQWfxM4b8UD102dsKCbFB4sZlFj-sW6Jp-3mvgtrxnQZMwKjGW", tag: "decor" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczNuSiJu3rJFWfYRQjKx1fjbJtrDQPuOAMgJdDmLk4qU7go1tC55I44LPKElJfhEkwRJQJimXBspCgdyYK2lsucNNAhdoblwMHwukC_u8Ux0qzZ0LJZf", tag: "setup" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczNlxTOnWrXNQY7IMD76qNVJnRdZ3illUQCnRdqHITxcvIrLIRJko8_cx7mzcqC5PRuZh4NeVKupCeV4QO6I6oV1-7ctAxorXkPwBw-aD0zGhsv3JmoZ", tag: "decor" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczN7O-xdO94eHiBT_yqRgSNv5eLbLo7KgiLpfaA01ZAtfqq29rz4UNbrtMbWF0UA_kE4HBA8gpOmDIRtvXHRzAK5p-MT8N6S_MuISw5ROhzpIqoNe3EC", tag: "setup" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczMJNjAhhUjwTRu0DOZUUjJ47VpYtcrMZV8NwVNaIIyNbn3FS-lMv4ZNbm9L-_wHNO0VKQdE1pBoVwUDPoJMnv_2Xg-36pXnXVtrTCPPHx_x08T4KZ0d", tag: "decor" },
-    { src: "https://lh3.googleusercontent.com/pw/AP1GczNay3UaAU6zfQ9_BmF8WTiZZBbvCdQvPgClNzBQTIJxc8NZifXTNZm-gcb9_bUcX-lRs-lL19jBzq5Cq8-IbjyGzur-CT0zxufoSDHVu73PbPkWsBC3", tag: "setup" }
-  ];
+// GALLERY
+const photos = [
+  {src:"https://lh3.googleusercontent.com/pw/AP1GczNWGcvA0zBZKZ9az001Ykk8VTZfHnlZadh4FscBpBqSA1TskvBFiG1Ravar9heCfLoqgTMgSdUqpWBJp_jU20LpofaTYFXGK11G410hazpLCnG2N2rZ",tag:"setups"},
+  {src:"https://lh3.googleusercontent.com/pw/AP1GczNe2EZLzlz386WKw3gtTjpqDlPZM7kF-dxMDsc6h8ZxYvEnFcpq3RoopYw8j6gsnIiISYCdiYHOehnzEEVRpuDQXXwdghVFBD1Ui28A2FiPh7GbgyFo",tag:"setups"},
+  {src:"https://lh3.googleusercontent.com/pw/AP1GczOgDTJIX_lMWr1aOP87ND0UgZ0WLZQzy3Rvzc17cy7KVFx-3drkV2-hOnM4S6hIMOxfOr2XuylmHxKRWXK3RJP5RfiuujJ20m1vhg4hseOGWCHTlqZl",tag:"setups"},
+  {src:"https://lh3.googleusercontent.com/pw/AP1GczMK98flkPg8zmK-cT2nwuXIpeTyhzKkoY-Mv-unqceBQtGzFiLwXxz4imKuq6kL4iHTwMGqjTnSyItTePrBZB9fyqEO_bTCUmoKqI7uJcYgMwUusggi",tag:"decor"},
+  {src:"https://lh3.googleusercontent.com/pw/AP1GczOJir5WovByWq2imtkfvfD698BRJH8bw3Mr6DRwwdPeCn8nwwUYdBE0J3qCYWhCjXOBAj-8_QBE5-s4u5b9PusX7ZB_ygbBjQq9d1op0rZ29lqbWuAF",tag:"decor"},
+  {src:"https://lh3.googleusercontent.com/pw/AP1GczM7GFCQTk9ayb8LZbK-0BZIhrG3Ajmd13EnqHkYZiOH1O-aHAt11k6mGupcm64Ktp_UtTSZFxmVwj9u4co7WYPlqrXV60kNURbIdo6Co2f3YSNsr7tq",tag:"decor"},
+  {src:"https://lh3.googleusercontent.com/pw/AP1GczPs1Z9jNmvi8u7VawEpIuZuQmkU7UvK61aELt3ahQozPww5Po1Sh0g8tdmL2kg6stZUpU-7JIMEIlupJ6NfJJ1uLOge4kzHmYHX7rkQMYzw75_ArdLO",tag:"setups"},
+  {src:"https://lh3.googleusercontent.com/pw/AP1GczOZ515bgDkB2BymSyRPK_7zaKnS0tbajV76JSb69lZMtIIuq2iegDrs3hV002Uwjrx4ltj7Xk6Mj-c_DoAJAr9ZEvwc64EWqPEjQZgQziKZAwBm8GOw",tag:"decor"},
+  {src:"https://lh3.googleusercontent.com/pw/AP1GczPb9ydYTIhRPJH_SBPItWJ_k0deadFVol7qvXgbOJLmLJBS-dnrPeLDIXMjR0F87LMUI5cTsHQtFKF1ic906AXbtOgPWxJxXlVlg9MdmJJ723hxyn-h",tag:"setups"},
+  {src:"https://lh3.googleusercontent.com/pw/AP1GczMbEzNFITJZY1tm8jqR8FsRZcdOr0BDIeybUIupQ7khTtNFDkfrd8SXaBmgOSYIvcDy2JEazOSvOpugx858_W5qDwjwM4EfIwCaOIw19u8yYnBTA5pq",tag:"decor"},
+  {src:"https://lh3.googleusercontent.com/pw/AP1GczMql4aV1w8hxFGAOicICdijbfhiXbMnKoVV2XVn2yRLQbA0LNTmmBdH15FXaadYJqLUsFLcXoSLu962Ll909G4FbfEpOJUEqxzKdNTdNiI8YNdGDHgs",tag:"setups"},
+  {src:"https://lh3.googleusercontent.com/pw/AP1GczPd6uMb0mBlMRGzAvNAc1mQ03haNyLT-NhFpj8FbCxmIlkwHB49FJ-XgQ2-jI_mfZ0zZMcc_JcXJNBHLqG9u8MNCy9T8gTEj5ieFL4iKw1eG9g3I0MU",tag:"decor"},
+];
 
-  let visiblePhotos = [...photos];
-  let lbIdx = 0;
+let visible=[...photos],lbIdx=0;
 
-  function buildGallery(items) {
-    const grid = document.getElementById('galleryGrid');
-    grid.innerHTML = '';
-    items.forEach((p, i) => {
-      const div = document.createElement('div');
-      div.className = 'gallery-item';
-      div.innerHTML = `<img src="${p.src}=w600-h450-no" loading="lazy" alt="Event photo ${i+1}"><div class="g-overlay">⊕</div>`;
-      div.addEventListener('click', () => openLb(i));
-      grid.appendChild(div);
-    });
-  }
-
-  function filterGallery(btn, tag) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    visiblePhotos = tag === 'all' ? [...photos] : photos.filter(p => p.tag === tag);
-    buildGallery(visiblePhotos);
-  }
-
-  function openLb(idx) {
-    lbIdx = idx;
-    updateLb();
-    document.getElementById('lightbox').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeLb() {
-    document.getElementById('lightbox').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  function updateLb() {
-    document.getElementById('lb-img').src = visiblePhotos[lbIdx].src + '=s1600-no';
-    document.getElementById('lb-counter-text').textContent = `${lbIdx + 1} / ${visiblePhotos.length}`;
-  }
-  function lbNav(dir) {
-    lbIdx = (lbIdx + dir + visiblePhotos.length) % visiblePhotos.length;
-    updateLb();
-  }
-
-  document.getElementById('lightbox').addEventListener('click', e => {
-    if (e.target === document.getElementById('lightbox')) closeLb();
+function buildGallery(items){
+  const g=document.getElementById('galleryGrid'); g.innerHTML='';
+  items.forEach((p,i)=>{
+    const d=document.createElement('div'); d.className='g-item';
+    d.innerHTML=`<img src="${p.src}=w600-h450-no" loading="lazy" alt="Event photo"><div class="g-overlay">⊕</div>`;
+    d.addEventListener('click',()=>openLb(i)); g.appendChild(d);
   });
-  document.addEventListener('keydown', e => {
-    if (!document.getElementById('lightbox').classList.contains('open')) return;
-    if (e.key === 'ArrowLeft') lbNav(-1);
-    if (e.key === 'ArrowRight') lbNav(1);
-    if (e.key === 'Escape') closeLb();
-  });
+}
 
-  // ── MOBILE MENU ──
-  function toggleMenu() {
-    document.getElementById('mobileMenu').classList.toggle('open');
-  }
+function filterGallery(btn,tag){
+  document.querySelectorAll('.gtab:not(.gold-tab)').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  visible=tag==='all'?[...photos]:photos.filter(p=>p.tag===tag);
+  buildGallery(visible);
+}
 
-  // ── FORM ──
-  function handleSubmit(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('.btn-submit');
-    btn.textContent = '✓ Inquiry Sent!';
-    btn.style.background = '#4a7c59';
-    btn.style.color = '#fff';
-    setTimeout(() => {
-      btn.textContent = 'Send Inquiry';
-      btn.style.background = '';
-      btn.style.color = '';
-      e.target.reset();
-    }, 3500);
-  }
+function openLb(idx){lbIdx=idx;updateLb();document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}
+function closeLb(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
+function updateLb(){document.getElementById('lb-img').src=visible[lbIdx].src+'=s1600-no';document.getElementById('lb-count').textContent=`${lbIdx+1} / ${visible.length}`;}
+function lbNav(d){lbIdx=(lbIdx+d+visible.length)%visible.length;updateLb();}
 
-  // ── SCROLL REVEAL ──
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(el => {
-      if (el.isIntersecting) {
-        el.target.classList.add('visible');
-        observer.unobserve(el.target);
-      }
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.getElementById('lightbox').addEventListener('click',e=>{if(e.target===document.getElementById('lightbox'))closeLb();});
+document.addEventListener('keydown',e=>{
+  if(!document.getElementById('lightbox').classList.contains('open'))return;
+  if(e.key==='ArrowLeft')lbNav(-1);if(e.key==='ArrowRight')lbNav(1);if(e.key==='Escape')closeLb();
+});
 
-  document.querySelectorAll('.reveal').forEach((el, i) => {
-    el.style.transitionDelay = `${(i % 4) * 0.08}s`;
-    observer.observe(el);
-  });
+// RENTALS TABS
+const tabMap = {tables:'Tables',chairs:'Chairs',stages:'Stages',linens:'Linens',tents:'Tents',lighting:'Lighting',backdrops:'Backdrops',centerpieces:'Centerpieces'};
+function switchTab(id){
+  document.querySelectorAll('.rentals-category').forEach(c=>c.classList.remove('active'));
+  document.querySelectorAll('.rtab').forEach(b=>b.classList.remove('active'));
+  const cat=document.getElementById('cat-'+id); if(cat)cat.classList.add('active');
+  document.querySelectorAll('.rtab').forEach(b=>{if(b.textContent.trim()===tabMap[id])b.classList.add('active');});
+}
 
-  // ── INIT ──
-  buildGallery(photos);
+// MOBILE MENU
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
+
+// FORM
+function handleSubmit(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('.btn-submit');
+  btn.textContent='✓ Inquiry Sent!'; btn.style.background='#4a7c59'; btn.style.color='#fff';
+  setTimeout(()=>{btn.textContent='Send Inquiry';btn.style.background='';btn.style.color='';e.target.reset();},3500);
+}
+
+// SCROLL REVEAL
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(el=>{if(el.isIntersecting){el.target.classList.add('visible');obs.unobserve(el.target);}});
+},{threshold:0.07,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=`${(i%4)*0.07}s`;obs.observe(el);});
+
+buildGallery(photos);
 </script>
 </body>
 </html>
